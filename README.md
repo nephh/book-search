@@ -15,6 +15,8 @@ A simple Google Books Search Engine that allows users to make accounts, and save
 
 [Link to the live site](https://pacific-gorge-64385-2ce02c842083.herokuapp.com/)
 
+![Screenshot](assets/screenshot.png)
+
 ## Installation
 
 1. Clone the repository: `git clone https://github.com/username/repo.git`
