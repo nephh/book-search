@@ -37,7 +37,8 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: args } }
+          { $addToSet: { savedBooks: args } },
+          { new: true }
         );
 
         return updatedUser;
@@ -46,13 +47,16 @@ const resolvers = {
       ("You need to be logged in!");
     },
     removeBook: async (parent, { bookId }, context) => {
+      console.log(bookId);
       if (context.user) {
-      const updatedUser = await User.findOneAndUpdate(
-        { username: context.user._id },
-        { $pull: { savedBooks: { bookId: bookId } } }
-      );
+        console.log(bookId);
+        const updatedUser = await User.findOneAndUpdate(
+          { username: "neph" },
+          { $pull: { savedBooks: { bookId: bookId } } },
+          { new: true }
+        );
 
-      return updatedUser;
+        return updatedUser;
       }
       throw AuthenticationError;
     },

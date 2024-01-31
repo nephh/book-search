@@ -43,12 +43,12 @@ export const SAVE_BOOK = gql`
     ) {
       username
       _id
+      bookCount
       savedBooks {
         title
         description
         bookId
       }
-      bookCount
     }
   }
 `;
@@ -58,6 +58,11 @@ export const DELETE_BOOK = gql`
     removeBook(bookId: $bookId) {
       username
       _id
+      savedBooks {
+        title
+        bookId
+        description
+      }
     }
   }
 `;
